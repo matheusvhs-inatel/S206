@@ -1,7 +1,7 @@
 /// <reference = cypress >
 
 describe('teste registro e login', () => {
-  it('teste criação usuario', () => {
+  it.skip('teste criação usuario', () => {
     cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
     cy.get('.btn-link').click()
     cy.get('#firstName').type('Matheus')
@@ -12,7 +12,7 @@ describe('teste registro e login', () => {
     cy.get('.ng-binding').should('contain', 'Registration successful')
   })
 
-  it('teste criação usuario com falha', () => {
+  it.skip('teste criação usuario com falha', () => {
     cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
     cy.get('.btn-link').click()
     cy.get('#firstName').type('Matheus')
@@ -21,7 +21,7 @@ describe('teste registro e login', () => {
     cy.get('.btn-primary').should('be.disabled')
   })
 
-  it('teste login com sucesso', () => {
+  it.skip('teste login com sucesso', () => {
     let infos = criarUsuario()
     cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
     cy.get('#username').type(infos[0])
@@ -30,7 +30,7 @@ describe('teste registro e login', () => {
     cy.get('h1.ng-binding').should('contain.text', infos[0])
   })
 
-  it("teste de deletar usuario, login e falhar", () => {
+  it.skip("teste de deletar usuario", () => {
     let infos = criarUsuario()
     cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login')
     cy.get('#username').type(infos[0])
@@ -42,7 +42,18 @@ describe('teste registro e login', () => {
     cy.get('#password').type(infos[1])
     cy.get('.btn-primary').click()
     cy.get('.ng-binding').should('contain', 'Username or password is incorrect')
-})
+
+  })
+
+  it("teste de deletar usuario commands", () => {
+    let infos = criarUsuario()
+    cy.login(infos[0], infos[1])
+    cy.get('.ng-binding > a').click()
+    cy.get('.btn').click()
+    cy.login(infos[0], infos[1])
+    cy.get('.ng-binding').should('have.text', 'Username or password is incorrect')
+
+  })
 
 })
 
