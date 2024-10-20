@@ -1,0 +1,46 @@
+# Logs do Cypress
+cypress/logs/
+
+# Mantenha os testes!
+!cypress/e2e/
+
+# Capturas de tela e vídeos
+cypress/screenshots/
+cypress/videos/
+
+# Arquivos de configuração locais
+cypress.env.json
+cypress.json
+
+# Dependências instaladas via npm/yarn/pnpm
+node_modules/
+
+# Cache de pacotes
+.npm/
+.pnpm/
+.yarn/
+
+# Logs gerais e arquivos de lock de sistema
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ambiente local ou variáveis específicas
+.env
+.env.local
+.env.test
+.env.*.local
+
+# Relatórios de cobertura de testes (caso use uma lib para isso)
+coverage/
