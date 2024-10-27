@@ -4,8 +4,9 @@
 
 ## Relatórios
 
-- [Relatório 2](https://github.com/matheusvhs/S206/blob/cae62e65c659b255e81cea6b0bfda49d36af9900/cypress/e2e/Aula2/exemploAula2.cy.js)
+- [Relatório 2](https://github.com/matheusvhs/S206/blob/df204872ea4d3860d166c78311023cf5ca565ff8/Testes%20-%20Cypress/cypress/e2e/Aula2/exemploAula2.cy.js)
+- [Relatório 4]
 
 ## Lista de Exercícios
 
-- [Teste de UI](https://github.com/matheusvhs/S206/tree/7f095ac8fb696bf391a36157ee44a7787c2c8899/cypress/e2e/Lista%20-%20Teste%20de%20UI)
+- [Teste de UI](https://github.com/matheusvhs/S206/tree/df204872ea4d3860d166c78311023cf5ca565ff8/Testes%20-%20Cypress/cypress/e2e/Lista%20-%20Teste%20de%20UI)
