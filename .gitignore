@@ -44,3 +44,6 @@ Thumbs.db
 
 # Relatórios de cobertura de testes (caso use uma lib para isso)
 coverage/
+mochawesome-report/
+
+
