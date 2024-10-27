@@ -1,7 +1,7 @@
 {
   "name": "s206",
   "version": "1.0.0",
-  "description": "![D](https://i.imgur.com/ip2zER1.gif)",
+  "description": "Repositório para disciplina S206 / Qualidade de Software",
   "main": "cypress.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
