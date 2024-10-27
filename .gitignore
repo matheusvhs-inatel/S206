@@ -1,5 +1,5 @@
 # Logs do Cypress
-cypress/logs/
+/cypress/logs/
 
 # Mantenha os testes!
 !cypress/e2e/
