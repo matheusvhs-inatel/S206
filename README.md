@@ -4,7 +4,7 @@
 
 ## Relatórios
 
-- [Relatório 2](https://github.com/matheusvhs/S206/blob/2f28bf3f6e76dad93d963e115e8dd158c4aa8a7b/cypress/e2e/ex2.cy.js)
+- [Relatório 2](https://github.com/matheusvhs/S206/blob/cae62e65c659b255e81cea6b0bfda49d36af9900/cypress/e2e/Aula2/exemploAula2.cy.js)
 
 ## Lista de Exercícios
 
