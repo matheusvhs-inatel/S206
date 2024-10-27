@@ -13,7 +13,7 @@ npm install
 Para rodar os testes e gerar o relatório, use o comando:
 
 ```powershell
-npx npx cypress run --spec ".\cypress\e2e\Lista - Teste de UI\teste_ui.cy.js" --reporter mochawesome
+npx cypress run --spec ".\cypress\e2e\Lista - Teste de UI\teste_ui.cy.js" --reporter mochawesome
 ```
 
 Os testes serão armazenados em um arquivo HTML dentro de uma pasta chamada mochawesome-reports na raíz do diretório.
