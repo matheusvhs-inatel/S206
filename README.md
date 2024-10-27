@@ -8,4 +8,4 @@
 
 ## Lista de Exercícios
 
-- [Lista 1](https://github.com/matheusvhs/S206/blob/main/cypress/e2e/Lista1)
+- [Teste de UI](https://github.com/matheusvhs/S206/tree/main/cypress/e2e/Lista%20-%20Teste%20de%20UI)
