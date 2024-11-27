@@ -22,7 +22,6 @@ node_modules/
 
 # Logs gerais e arquivos de lock de sistema
 *.log
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 

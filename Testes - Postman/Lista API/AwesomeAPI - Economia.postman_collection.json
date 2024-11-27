@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "15ac9bce-412f-4c1a-a054-121a77a151fe",
+		"name": "AwesomeAPI - Economia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39317522"
+	},
+	"item": [
+		{
+			"name": "Consultar a cotação de uma moeda específica (positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains expected fields\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"USDBRL\");\r",
+							"    pm.expect(jsonData.USDBRL).to.include.keys(\"bid\", \"ask\", \"high\", \"low\", \"code\", \"codein\");\r",
+							"    pm.expect(jsonData.USDBRL.code).to.eql(\"USD\");\r",
+							"    pm.expect(jsonData.USDBRL.codein).to.eql(\"BRL\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/USD-BRL",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						"USD-BRL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar múltiplas cotações de moedas (positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains multiple currencies\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"USDBRL\");\r",
+							"    pm.expect(jsonData).to.have.property(\"EURBRL\");\r",
+							"    pm.expect(jsonData.USDBRL).to.include.keys(\"bid\", \"ask\", \"high\", \"low\");\r",
+							"    pm.expect(jsonData.EURBRL).to.include.keys(\"bid\", \"ask\", \"high\", \"low\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/USD-BRL,EUR-BRL",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						"USD-BRL,EUR-BRL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar o tempo de resposta (positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is acceptable\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000); // 1 segundo\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/USD-BRL",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						"USD-BRL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testar endpoint com parâmetros adicionais (positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains historical data\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData).to.have.property(\"USDBRL\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/USD-BRL?start_date=20240101&end_date=20241120",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						"USD-BRL"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "20240101"
+						},
+						{
+							"key": "end_date",
+							"value": "20241120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar uma moeda inexistente (negativo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is as expected\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"status\", 404);\r",
+							"    pm.expect(jsonData).to.have.property(\"code\", \"CoinNotExists\");\r",
+							"    pm.expect(jsonData).to.have.property(\"message\", \"moeda nao encontrada XXX-BRL\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/XXX-BRL",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						"XXX-BRL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Omitir a moeda no endpoint (negativo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is as expected\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"status\", 404);\r",
+							"    pm.expect(jsonData).to.have.property(\"code\", \"CoinNotExists\");\r",
+							"    pm.expect(jsonData).to.have.property(\"message\", \"moeda nao encontrada LAST-BRL\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/json/last/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"json",
+						"last",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
