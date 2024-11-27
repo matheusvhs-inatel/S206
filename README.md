@@ -11,3 +11,4 @@
 ## Lista de Exercícios
 
 - [Teste de UI](https://github.com/matheusvhs/S206/tree/df204872ea4d3860d166c78311023cf5ca565ff8/Testes%20-%20Cypress/cypress/e2e/Lista%20-%20Teste%20de%20UI)
+- [Teste de API](https://github.com/matheusvhs/S206/tree/main/Testes%20-%20Postman/Lista%20API)
